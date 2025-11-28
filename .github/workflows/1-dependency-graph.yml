@@ -84,8 +84,6 @@ jobs:
         with:
           text-file: ${{ env.FOLLOW_REDIRECTS_FILE }}
           keyphrase: ${{ env.FOLLOW_REDIRECTS_KEYPHRASE }}
-          minimum-occurrences: 1
-          maximum-occurrences: 1
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
