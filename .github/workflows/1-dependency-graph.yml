@@ -15,7 +15,6 @@ permissions:
 env:
   STEP_2_FILE: ".github/steps/2-dependabot-alerts.md"
   FOLLOW_REDIRECTS_FILE: "code/src/AttendeeSite/package-lock.json"
-  FOLLOW_REDIRECTS_KEYPHRASE: "1\\.14\\.1"
 
 jobs:
   find_exercise:
@@ -83,7 +82,7 @@ jobs:
         uses: skills/action-keyphrase-checker@v1
         with:
           text-file: ${{ env.FOLLOW_REDIRECTS_FILE }}
-          keyphrase: ${{ env.FOLLOW_REDIRECTS_KEYPHRASE }}
+          keyphrase: "1\\.14\\.1"
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -98,7 +97,7 @@ jobs:
             results_table:
               - description: "Checked that ${{ env.FOLLOW_REDIRECTS_FILE }} has valid JSON structure"
                 passed: ${{ steps.check-json-structure.outcome == 'success' }}
-              - description: "Checked for follow-redirects version ${{ env.FOLLOW_REDIRECTS_KEYPHRASE }} in ${{ env.FOLLOW_REDIRECTS_FILE }}"
+              - description: "Checked for follow-redirects version 1.14.1 in ${{ env.FOLLOW_REDIRECTS_FILE }}"
                 passed: ${{ steps.check-keyphrase.outcome == 'success' }}
 
       # END: Check practical exercise
